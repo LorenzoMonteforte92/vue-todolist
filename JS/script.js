@@ -15,7 +15,7 @@
 // Bonus:
 // 1- oltre al click sul pulsante, intercettare anche il tasto ENTER per aggiungere il todo alla lista
 // 2- cliccando sul testo dell'item, invertire il valore della proprietà done del todo corrispondente (se done era uguale a false, impostare true e viceversa)
-
+// al click sullo span cambia il valore di .done in true e viene aiiunta la classe line through
 const { createApp } = Vue;
 
 createApp({
@@ -44,25 +44,36 @@ createApp({
             text: '',
             done: false,
         },
+
+        errorOccurred: false
            
         };
     },
     methods: {
 
-        removeListItem(ClickedIndex){
-            this.toDo.splice(ClickedIndex, 1)
+        removeListItem(clickedIndex){
+            this.toDo.splice(clickedIndex, 1)
         },
 
         addNewTask (){
-            this.toDo.unshift(this.newTask)
-            this.newTask = ``
-        },
-
-        // textStrikeThrough (ClickedIndex){
+            if(this.newTask.text.length >= 5){
+                this.toDo.unshift(this.newTask);
+                this.newTask = {
+                    text: '',
+                    done: false,
+                }
+                this.errorOccurred = false
+            }else{
+                this.errorOccurred = true
+            }
             
-        //     // this.toDo.done = !this.toDo.done
-        //     console.log(ClickedIndex)
-        // }
+            
+},
+
+        textStrikeThrough (clickedIndex){
+            this.toDo[clickedIndex].done = !this.toDo[clickedIndex].done
+            
+        },
        
     }
 }).mount('#app');

@@ -13,9 +13,17 @@ header{
 .todo-item{
     border-bottom: 1px solid blue;
     padding: 5px 10px;
-    cursor: pointer;
 }
 
 .ms-input{
     width: 600px;
+
+}
+
+.list-item{
+    cursor: pointer;
+}
+
+.error-txt{
+    color: red
 }

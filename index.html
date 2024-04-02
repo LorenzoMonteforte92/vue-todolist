@@ -20,9 +20,10 @@
                 <div class="col-6 d-flex flex-column justify-content-center align-items-center">
                     <img src="img\logo.png" alt="boolean logo">
                     <div class="my-4">
-                        <input class="ms-input p-2 rounded-3" type="text" placeholder="Next Task" v-model="newTask.text" >
+                        <input class="ms-input p-2 rounded-3" type="text" placeholder="Next Task" v-model="newTask.text" @keyup.enter="addNewTask" >
                         <button class="ms-btn p-2 ms-2 rounded-3" @click="addNewTask">Aggiungi</button>
                     </div>
+                    <div v-if="errorOccurred" class="error-txt">Inserire il nome di una task di almeno 5 lettere</div>
                 </div>
             </div>
         </div>
@@ -34,11 +35,13 @@
                 <div 
                 class="todo-item d-flex justify-content-between"
                 :class="{ 'text-decoration-line-through' : listItem.done}"
+                
                 >
-                    <span>
+                    <span class="list-item"
+                    @click="textStrikeThrough(index)">
                         {{ listItem.text }}
                     </span>
-                    <span @click="removeListItem(index)"><i class="fa-solid fa-xmark"></i></span>
+                    <span @click="removeListItem()"><i class="fa-solid fa-xmark"></i></span>
                 </div>
             </template>
         </div>
