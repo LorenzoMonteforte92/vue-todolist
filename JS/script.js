@@ -5,15 +5,23 @@ const { createApp } = Vue;
 createApp({
     data() {
         return {
-            slides: [
+            toDo: [
                 {
                     text: 'Fare la spesa',
                     done: true,
                 }, 
                 {
-                    text: 'Andare a correre',
+                    text: 'preparare schiscetta',
+                    done: true,
+                },
+                {
+                    text: 'Andare al mare',
                     done: true,
                 }, 
+                {
+                    text: 'Pulire casa',
+                    done: true,
+                },  
             ]
            
         };
