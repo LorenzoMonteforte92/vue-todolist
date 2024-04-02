@@ -55,7 +55,7 @@ createApp({
 
         addNewTask (){
             this.toDo.unshift(this.newTask)
-            console.log(this.newTask)
+            this.newTask = ``
         },
 
         // textStrikeThrough (ClickedIndex){
