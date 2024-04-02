@@ -65,9 +65,7 @@ createApp({
                 this.errorOccurred = false
             }else{
                 this.errorOccurred = true
-            }
-            
-            
+            }         
 },
 
         textStrikeThrough (clickedIndex){
