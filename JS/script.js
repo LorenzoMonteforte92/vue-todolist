@@ -40,10 +40,7 @@ createApp({
                 },  
             ],
 
-        newTask: {
-            text: '',
-            done: false,
-        },
+        newTaskText: ``,
 
         errorOccurred: false
            
@@ -56,12 +53,14 @@ createApp({
         },
 
         addNewTask (){
-            if(this.newTask.text.length >= 5){
-                this.toDo.unshift(this.newTask);
-                this.newTask = {
-                    text: '',
-                    done: false,
-                }
+            const newTaskObject = {
+                text: this.newTaskText,
+                done: false
+            }
+            
+            if(this.newTaskText.length >= 5){
+                this.toDo.unshift(newTaskObject);
+                this.newTaskText = ``
                 this.errorOccurred = false
             }else{
                 this.errorOccurred = true
