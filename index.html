@@ -31,19 +31,17 @@
 <div class="container-fluid">
     <div class="row justify-content-center align-items-center">
         <div class="col-6 ms-todo-container rounded-3">
-            <template v-for="listItem, index in toDo" >   
-                <div 
-                class="todo-item d-flex justify-content-between"
-                :class="{ 'text-decoration-line-through' : listItem.done}"
-                
-                >
-                    <span class="list-item"
-                    @click="textStrikeThrough(index)">
-                        {{ listItem.text }}
-                    </span>
-                    <span @click="removeListItem()"><i class="fa-solid fa-xmark"></i></span>
-                </div>
-            </template>
+            <div
+            v-for="listItem, index in toDo" 
+            class="todo-item d-flex justify-content-between"
+            :class="{ 'text-decoration-line-through' : listItem.done}"
+            >
+                <span class="pointer"
+                @click="textStrikeThrough(index)">
+                    {{ listItem.text }}
+                </span>
+                <span class="pointer" @click="removeListItem(index)"><i class="fa-solid fa-xmark"></i></span>
+            </div>
         </div>
     </div>
 </div>
